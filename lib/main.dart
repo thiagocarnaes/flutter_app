@@ -24,8 +24,18 @@ class _MyAsppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      "What's your favorite color?",
-      "What's your favorite animal?"
+      {
+        'questionText': "What's your favorite color?",
+        'answers': ['Black', 'Red', 'Green']
+      },
+      {
+        'questionText': "What's your favorite animal?",
+        'answers': ['Dog', 'Cat', 'Eagle']
+      },
+      {
+        'questionText': "Who's your favorite football team?",
+        'answers': ['Santos', 'Brasil', 'None']
+      },
     ];
     return MaterialApp(
       title: 'Flutter Demo',
