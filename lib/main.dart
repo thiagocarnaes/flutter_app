@@ -16,19 +16,34 @@ class _MyAsppState extends State<MyApp> {
   final _questions = const [
     {
       'questionText': "What's your favorite color?",
-      'answers': ['Black', 'Red', 'Green']
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3}
+      ]
     },
     {
       'questionText': "What's your favorite animal?",
-      'answers': ['Dog', 'Cat', 'Eagle']
+      'answers': [
+        {'text': 'Dog', 'score': 10},
+        {'text': 'Cat', 'score': 5},
+        {'text': 'Eagle', 'score': 3}
+      ]
     },
     {
       'questionText': "Who's your favorite football team?",
-      'answers': ['Santos', 'Brasil', 'None']
+      'answers': [
+        {'text': 'Santos', 'score': 10},
+        {'text': 'Brasil', 'score': 5},
+        {'text': 'None', 'score': 0}
+      ]
     },
   ];
   var _questionIndex = 0;
-  void _answerQuestion() {
+  var _totalScore = 0;
+
+  void _answerQuestion(int score) {
+    _totalScore += score;
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -55,7 +70,7 @@ class _MyAsppState extends State<MyApp> {
                 questions: _questions,
                 questionIndex: _questionIndex,
               )
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
